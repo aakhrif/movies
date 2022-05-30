@@ -1,0 +1,20 @@
+<div class="container">
+  <!-- Tittle -->
+  <div class="heading-block white-text text-center margin-bottom-50">
+    <h2>What is your favorite movie title ?</h2>
+    <span>See how well your page is optimised for your keyword</span>
+  </div>
+
+  <!-- Form -->
+  <form (ngSubmit)="onSubmit()" #searchForm="ngForm" class="d-flex justify-content-center">
+    <div class="row">
+      <div class="col-md-9">
+        <input [(ngModel)]="search.searchstr" #searchstr="ngModel" type="text" name="search"
+            class="form-control ng-untouched ng-pristine ng-valid" placeholder="Search query" />
+      </div>
+      <div class="col-md-3">
+        <button type="submit" [disabled]="!searchForm.valid" class="btn btn-warning">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
