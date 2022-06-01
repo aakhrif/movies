@@ -1,3 +1,6 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="/src/assets/images/foo.png">
-</picture>
+### Getting started
+
+mv .env-example .env and adjust API-KEY
+npm start
+
+![Shoppy](https://alwasit.net/images/foo.png)
