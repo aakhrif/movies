@@ -1,20 +1,56 @@
 <div class="container">
   <!-- Tittle -->
   <div class="heading-block white-text text-center margin-bottom-50">
-    <h2>What is your favorite movie title ?</h2>
+    <h2>Look for your favorite movie !</h2>
     <span>See how well your page is optimised for your keyword</span>
   </div>
 
   <!-- Form -->
-  <form (ngSubmit)="onSubmit()" #searchForm="ngForm" class="d-flex justify-content-center">
+  <form
+    (ngSubmit)="onSubmit()"
+    #searchForm="ngForm"
+    class="d-flex justify-content-center"
+  >
     <div class="row">
-      <div class="col-md-9">
-        <input [(ngModel)]="search.searchstr" #searchstr="ngModel" type="text" name="search"
-            class="form-control ng-untouched ng-pristine ng-valid" placeholder="Search query" />
+      <div class="col-md-9 col-sm-6">
+        <input
+          [(ngModel)]="search.searchstr"
+          #searchstr="ngModel"
+          type="text"
+          name="search"
+          class="form-control ng-untouched ng-pristine ng-valid"
+          placeholder="Search query"
+        />
       </div>
-      <div class="col-md-3">
-        <button type="submit" [disabled]="!searchForm.valid" class="btn btn-warning">Search</button>
+      <div class="col-md-3 col-sm-6">
+        <button
+          type="submit"
+          [disabled]="!searchForm.valid"
+          class="btn btn-warning"
+        >
+          Search
+        </button>
       </div>
     </div>
   </form>
+
+  <!-- List Movies -->
+  <ng-container *ngIf="movies">
+    <div class="row">
+      <div *ngFor="let movie of movies; index as i;" class="col-md-4 col-sm-6 mb30 sq-item" style="background-size: cover;">
+          <!-- <div class="col-md-4 col-sm-6 mb30 sq-item" style="background-size: cover;"> -->
+            <div class="picframe img-shadow" style="background-size: cover;">
+              <span class="overlay">
+                      <span class="title">
+                          <span><span class="bg-color">{{movie.Type}} | {{movie.Year}}</span></span>
+              </span>
+              </span>
+              <img [src]="movie.Poster" class="wow fadeInUp animated" 
+                alt="" data-wow-delay="0s" style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">
+            </div>
+            <h4>{{movie.Title}}</h4>
+        <!-- </div> -->
+      </div>
+    </div>
+  </ng-container>
 </div>
